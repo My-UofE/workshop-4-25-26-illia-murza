@@ -44,4 +44,39 @@ public class Rectangle {
     return 2 * (width + height);
   }
   
+  public void scale(double scaleFactor) {
+    width *= scaleFactor;
+    height *= scaleFactor;
+  }
+
+  public void scale(double scaleX, double scaleY) {
+    width *= scaleX;
+    height *= scaleY;
+  }
+
+  public boolean isOverlappedWith(Rectangle r) {
+    if (originX + width <= r.originX || r.originX + r.width <= originX) {
+      return false; // No horizontal overlap
+    } 
+    if (originY + height <= r.originY || r.originY + r.height <= originY) {
+      return false; // No vertical overlap
+    }
+    return true; // Rectangles overlap
+  }
+
+  public static boolean areOverlapping(Rectangle r1, Rectangle r2) {
+    return r1.isOverlappedWith(r2);
+  }
+
+  public double calcRatio () {
+    return width / height;
+  }
+
+  public boolean isSquare() {
+    if ( 0.999 <= calcRatio() && calcRatio() <= 1.001 ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -2,8 +2,8 @@
 public class Rectangle {
   
   // 4 instance attributes
-  public double width;
-  public double height;
+  private double width;
+  private double height;
   public double originX = 0.0;
   public double originY = 0.0;
 
@@ -77,6 +77,28 @@ public class Rectangle {
       return true;
     } else {
       return false;
+    }
+  }
+
+  // for each attribute provide getter method
+  public double getWidth(){ 
+    return width;
+  }
+
+  public double getHeight() {
+    return height;
+  }
+
+  // for each attribute provide setter method
+  public void setWidth(double width){
+    if (width >= 0) {
+      this.width = width;
+    }
+  }
+
+  public void setHeight(double height) {
+    if (height >= 0) {
+      this.height = height;
     }
   }
 }
